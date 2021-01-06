@@ -1,0 +1,2 @@
+#non static method cannot be called statically
+#mariadb -> mysql
