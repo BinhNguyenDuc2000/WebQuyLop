@@ -1,13 +1,12 @@
 <?php
 // Trang chủ
 
-class Home extends controller{
+class Register extends controller{
     function info(){
         $sinhvien=$this->model("SinhVien");
         $con=$sinhvien->GetSinhVien();
-        $this->view("standard1",["Page"=>"AllInfo","Database"=>$con]);
+        $this->view("standard1",["Page"=>"Register","Database"=>$con]);
         
     }
 }
 ?>
-
