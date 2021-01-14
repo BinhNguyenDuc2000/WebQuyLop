@@ -1,4 +1,4 @@
-<h2>Register</h2>
+<h2>Đăng Ký</h2>
 <!--Nội dung trang đăng nhập-->
 <form action="./Register/Reciever" method="POST">
   <div class="form-group">
@@ -19,16 +19,17 @@
   </div>
   <div class="form-group">
     <label for="SDT">Số điện thoại*</label> <br>
-    <input type="number" name="SDT" class="form-control" id="SDT" aria-describedby="SDTHelp"> 
+    <input type="number" name="SDT" class="form-control" id="SDT" aria-describedby="SDTHelp"> <br> 
     <small id="SDTHelp" class="form-text text-muted">Không bắt buộc</small> <br>
   </div>
   <div class="form-group">
     <label for="Email">Email*</label> <br>
-    <input type="Email" name="Email" class="form-control" id="Email" aria-describedby="EmailHelp"> 
+    <input type="Email" name="Email" class="form-control" id="Email" aria-describedby="EmailHelp"> <br> 
     <small id="EmailHelp" class="form-text text-muted">Không bắt buộc</small> <br>
   </div>
   <div class="form-group">
     <label for="Pass">Password</label> <br>
     <input type="Pass" name="Pass" class="form-control" id="Pass"> <br>
+  </div>
   <button type="btnRegister" name="btnRegister" class="btn-primary">Đăng Ký</button>
 </form>
