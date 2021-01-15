@@ -1,12 +1,16 @@
 <?php
 // Trang chủ
-
 class Home extends controller{
     function info(){
-        $sinhvien=$this->model("SinhVien");
-        $con=$sinhvien->GetSinhVien();
-        $this->view("standard1",["Page"=>"AllInfo","Database"=>$con]);
-        
+        if(!$_SESSION["MSSV"])
+        {
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/QuyLop/Login');
+            exit;
+        }
+        else 
+        {
+            $this->view("standard1",["Page"=>"AllInfo","Database"=>""]);
+        }
     }
 }
 ?>

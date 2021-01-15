@@ -24,7 +24,7 @@ class Register extends controller{
             $Email=$_POST["Email"];
             $Pass=$_POST["Pass"];
             $Pass=password_hash($Pass,PASSWORD_DEFAULT);
-            // Truyền dữ liệu
+            // Truyền dữ liệu và xử lí kết quả
             if($this->DangKy->Insert($MSSV,$HoTen,$TenLop,$Khoa,$SDT,$Email,$Pass))
             {
                 echo "Đăng ký thành công";
