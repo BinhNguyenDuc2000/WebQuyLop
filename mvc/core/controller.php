@@ -9,5 +9,10 @@ class Controller {
     public function view($view,$data=[]){
         require_once "./mvc/views/".$view.".php";
     }
+    // Sử dụng Javascript do php không cho phép in ki chuyển trang
+    public function redirect($site){
+        $link="http://".$_SERVER['HTTP_HOST']."/QuyLop/".$site;
+        echo "<script>setTimeout(\"location.href = '$link';\",1500);</script>";
+    }
 }
 ?>

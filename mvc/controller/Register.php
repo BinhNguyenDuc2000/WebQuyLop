@@ -10,7 +10,7 @@ class Register extends controller{
     }
     public function info()
     {
-        $this->view("standard1",["Page"=>"Register","Database"=>""]);
+        $this->view("standard0",["Page"=>"Register","Database"=>""]);
     }
     // Hứng và xử lý dữ liệu nhận được từ trang đăng ký
     public function Reciever(){

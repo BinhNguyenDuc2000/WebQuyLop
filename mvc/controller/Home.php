@@ -4,8 +4,7 @@ class Home extends controller{
     function info(){
         if(!$_SESSION["MSSV"])
         {
-            header('Location: http://'.$_SERVER['HTTP_HOST'].'/QuyLop/Login');
-            exit;
+            $this->view("standard0",["Page"=>"AllInfo","Database"=>""]);
         }
         else 
         {

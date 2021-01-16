@@ -1,4 +1,4 @@
-<!--Trang sau khi đăng nhập-->
+<!--Trang chưa đăng nhập-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +9,9 @@
 <section>
   <nav>
     <ul>
-      <li><a href="./Home">Home</a></li>
-      <li><a href="./LogOut">Đăng xuất</a></li>
+      <li><a href="./Home">Trang Chủ</a></li>
+      <li><a href="./Login">Đăng Nhập</a></li>
+      <li><a href="./Register">Đăng Ký</a></li>
     </ul>
   </nav>
 </section>

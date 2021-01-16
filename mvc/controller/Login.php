@@ -9,7 +9,7 @@ class Login extends controller{
     }
     public function info()
     {
-        $this->view("standard1",["Page"=>"Login","Database"=>""]);
+        $this->view("standard0",["Page"=>"Login","Database"=>""]);
     }
     // Hứng và xử lý dữ liệu nhận được từ trang đăng nhập
     public function Reciever()
@@ -23,15 +23,17 @@ class Login extends controller{
             $QuyenAdmin=$this->DangNhap->Insert($MSSV,$Pass);
             if($QuyenAdmin!=0)
             {
-                echo "Đăng Nhập thành công";
                 $_SESSION["MSSV"]=$MSSV;
                 $_SESSION["QuyenAdmin"]=$QuyenAdmin;
-                header('Location: http://'.$_SERVER['HTTP_HOST'].'/QuyLop/Home');
+                echo "Đăng nhập thành công";
+                $this->redirect("Home");
                 exit;
             }
             else 
             {
                 echo "Đăng nhập thất bại";
+                $this->redirect("Login");
+                exit;
             }
         }
     }

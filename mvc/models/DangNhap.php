@@ -28,7 +28,6 @@ class DangNhap extends DB{
         {
             if (password_verify($Pass,$data['Pass']))
             {
-                echo "Đăng nhập thành công";
                 return $data['QuyenAdmin'];
             }
             {
