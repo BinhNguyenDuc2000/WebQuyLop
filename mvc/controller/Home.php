@@ -1,8 +1,9 @@
 <?php
+session_start();
 // Trang chủ
 class Home extends controller{
     function info(){
-        if(!$_SESSION["MSSV"])
+        if(!isset($_SESSION["MSSV"]))
         {
             $this->view("standard0",["Page"=>"AllInfo","Database"=>""]);
         }

@@ -14,5 +14,10 @@ class Controller {
         $link="http://".$_SERVER['HTTP_HOST']."/QuyLop/".$site;
         echo "<script>setTimeout(\"location.href = '$link';\",1500);</script>";
     }
+    // Hiển thị lỗi
+    public function PopUp($Message)
+    {
+        echo "<script>alert(\"".$Message."\")</script>";
+    }
 }
 ?>

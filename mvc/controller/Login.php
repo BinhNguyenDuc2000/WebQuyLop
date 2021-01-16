@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Trang đăng nhập
 class Login extends controller{
     // Gọi đến cơ sở dữ liệu và trang đăng nhập
@@ -9,6 +10,13 @@ class Login extends controller{
     }
     public function info()
     {
+        // Quay về trang chủ nếu đã đăng nhập
+        if(isset($_SESSION["MSSV"]))
+        {
+            echo "Đã đăng nhập";
+            $this->redirect("Home");
+            exit;
+        }
         $this->view("standard0",["Page"=>"Login","Database"=>""]);
     }
     // Hứng và xử lý dữ liệu nhận được từ trang đăng nhập
@@ -25,16 +33,22 @@ class Login extends controller{
             {
                 $_SESSION["MSSV"]=$MSSV;
                 $_SESSION["QuyenAdmin"]=$QuyenAdmin;
-                echo "Đăng nhập thành công";
+                $this->PopUp("Đăng Nhập thàn công");
                 $this->redirect("Home");
                 exit;
             }
             else 
             {
-                echo "Đăng nhập thất bại";
+                $this->PopUp("Đăng Nhập thất bại");
                 $this->redirect("Login");
                 exit;
             }
+        }
+        else
+        {
+            $this->PopUp("Chưa ấn nút đăng nhập");
+            $this->redirect("Login");
+            exit;
         }
     }
 }
