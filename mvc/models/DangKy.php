@@ -1,5 +1,5 @@
 <?php
-// Thao tac dang ky
+// Thao tác đăng ký
 class DangKy extends DB{
     public function Insert($MSSV,$HoTen,$TenLop,$Khoa,$SDT,$Email,$Pass){
         $query="Insert into SinhVien Values ('$MSSV',N'$HoTen',N'$TenLop','$Khoa','$SDT','$Email',1,'$Pass')";
@@ -13,8 +13,8 @@ class DangKy extends DB{
             catch(PDOException $e)
             {
                 // In lỗi
-                // $e->getMessage();
-                // echo $e."<br>";
+                $e->getMessage();
+                echo $e."<br>";
                 return FALSE;
             }
 

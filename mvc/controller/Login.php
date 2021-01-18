@@ -3,7 +3,7 @@ session_start();
 // Trang đăng nhập
 class Login extends controller{
     // Gọi đến cơ sở dữ liệu và trang đăng nhập
-    public $DangNhap;
+    protected $DangNhap;
     public function __construct()
     {
          // Quay về trang chủ nếu đã đăng nhập

@@ -1,8 +1,9 @@
 <?php
-// Thong tin ve sinh vien
+// Dữ liệu về sinh viên
 class SinhVien extends DB{
-    public function GetSinhVien(){
-        $query="select * from SinhVien";
+    // Hàm lấy dữ liệu về sinh viên
+    public function GetSinhVien($MSSV){
+        $query="select * from SinhVien where MSSV='$MSSV'";
         $con=$this->conn->prepare($query);
         $con->setFetchMode(PDO::FETCH_ASSOC);
         {
@@ -14,9 +15,29 @@ class SinhVien extends DB{
             }
             catch(PDOException $e)
             {
+                // bắt lỗi
                 $e->getMessage();
                 echo $e;
                 return NULL;
+            }
+        }
+    }
+    // Hàm xóa tài khoản của sinh viên
+    public function Delete($MSSV){
+        $query="delete from SinhVien where MSSV='$MSSV'";
+        $con=$this->conn->prepare($query);
+        {
+            try
+            {
+                $con->execute();
+                return TRUE;
+            }
+            catch(PDOException $e)
+            {
+                // bắt lỗi
+                $e->getMessage();
+                echo $e;
+                return FALSE;
             }
         }
     }

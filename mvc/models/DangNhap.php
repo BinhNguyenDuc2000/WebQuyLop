@@ -1,5 +1,5 @@
 <?php
-// Thao tac dang nhap
+// Thao tác đăng nhập 
 class DangNhap extends DB{
     public function Insert($MSSV,$Pass){
         $query="Select * from SinhVien where MSSV='$MSSV'";

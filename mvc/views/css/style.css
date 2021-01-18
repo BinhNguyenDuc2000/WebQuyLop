@@ -4,35 +4,31 @@
     margin: 0;
     box-sizing: border-box;
 }
+div.main{
+    margin: 25px auto;
+    padding: 20px;
+    border: 5px solid #ccc;
+    width: 60%;
+    background: #eee;
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-family: 'Lato';
+}
 body {
     text-align: center;
-}
-
-h1 {
-    font-family: 'Passion One';
-    font-size: 2rem;
-    text-transform: uppercase;
 }
 label {
     width: 150px;
     display: inline-block;
     text-align: center;
-    font-size: 1.5rem;
-    font-family: 'Lato';
 }
 input {
     border: 2px solid #ccc;
+    padding: 10px;
+    width: 70%;
     font-size: 1.5rem;
     font-weight: 100;
     font-family: 'Lato';
-    padding: 10px;
-}
-form {
-    margin: 25px auto;
-    padding: 20px;
-    border: 5px solid #ccc;
-    width: 500px;
-    background: #eee;
 }
 div.form-group {
     margin: 20px 0;
@@ -46,6 +42,9 @@ button {
     color: white;
     border: none;
 }
+button:hover {
+    background-color: grey;
+}
 p.success,
 p.error {
     color: white;
@@ -56,6 +55,36 @@ p.error {
 }
 p.error {
     background: orangered;
+}
+/* phần hiển thị các thông tin */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: yellowgreen;
+    color: white;
+}
+td.left {
+    background-color: yellowgreen;
+    color: white;
+    border: 2px black;
+    border-radius: 5px;
+    width: 20%;
+}
+td.right {
+    background-color: white;
+    border: 2px black;
+    border-radius: 5px;
+    width: 70%;
+}
+td.right:hover {
+    background-color: grey;
 }
 /* Các đường link */
 ul {

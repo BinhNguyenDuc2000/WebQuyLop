@@ -1,23 +1,51 @@
 <?php
 session_start();
 // Trang hiển thị thông tin sinh viên
-class Login extends controller{
+class StudentInfo extends controller{
     // Gọi đến cơ sở dữ liệu và hiển thị thông tin sinh viên
-    public $SinhVien;
+    protected $SinhVien;
     public function __construct()
     {
          // Quay về trang đăng nhập nếu đã đăng nhập
          if(!isset($_SESSION["MSSV"]))
          {
-             echo "Chưa đăng nhập";
+             $this->PopUp("chưa đăng nhập");
              $this->redirect("Login");
              exit;
          }
-        $this->ThongTinSinhVien=$this->model("SinhVien");
+         $this->SinhVien=$this->model("SinhVien");
     }
     public function info()
     {
-        $this->view("Standard0",["Page"=>"StudentInfo","Link"=>"StudentInfo","Database"=>""]);
+        $data=$this->SinhVien->GetSinhVien($_SESSION["MSSV"]);
+        if(isset($data))
+        {
+            $this->view("Standard0",["Page"=>"StudentInfo","Link"=>"StudentInfo","Database"=>$data]);
+        }
+        else
+        {
+            $this->PopUp("Đã xảy ra lỗi");
+            $this->redirect("Home");
+            exit;
+        }
+    }
+    // Hàm xóa tài khoản
+    public function DeleteAccount()
+    {
+        if(isset($_POST["btnDelete"]))
+        {
+            $MSSV=$_SESSION["MSSV"];
+            if($this->SinhVien->Delete($MSSV)){
+                $this->PopUp("Xóa tài khoản thành công");
+                $this->redirect("LogOut");
+                exit;
+            }
+            else {
+                $this->PopUp("Xóa tài khoản thất bại");
+                $this->redirect("Home");
+                exit;
+            }
+        }
     }
     
 }

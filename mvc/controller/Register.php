@@ -3,7 +3,7 @@ session_start();
 // Trang đăng ký
 class Register extends controller{
     // Gọi đến cơ sở dữ liệu và trang đăng ký
-    public $DangKy;
+    protected $DangKy;
     public function __construct()
     {
         // Quay về trang chủ nếu đã đăng nhập
@@ -13,7 +13,7 @@ class Register extends controller{
             $this->redirect("Home");
             exit;
         }
-        $this->DangNhap=$this->model("DangKy");
+        $this->DangKy=$this->model("DangKy");
     }
     public function info()
     {
