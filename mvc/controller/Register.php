@@ -6,10 +6,6 @@ class Register extends controller{
     public $DangKy;
     public function __construct()
     {
-        $this->DangNhap=$this->model("DangKy");
-    }
-    public function info()
-    {
         // Quay về trang chủ nếu đã đăng nhập
         if(isset($_SESSION["MSSV"]))
         {
@@ -17,7 +13,11 @@ class Register extends controller{
             $this->redirect("Home");
             exit;
         }
-        $this->view("standard0",["Page"=>"Register","Database"=>""]);
+        $this->DangNhap=$this->model("DangKy");
+    }
+    public function info()
+    {
+        $this->view("Standard0",["Page"=>"Register","Link"=>"Register","Database"=>""]);
     }
     // Hứng và xử lý dữ liệu nhận được từ trang đăng ký
     public function Reciever(){

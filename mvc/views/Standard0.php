@@ -1,4 +1,4 @@
-<!--Trang chưa đăng nhập-->
+<!--Trang giao diện cơ bản -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <section>
-  <nav>
-    <ul>
-      <li><a href="./Home">Trang Chủ</a></li>
-      <li><a href="./Login">Đăng Nhập</a></li>
-      <li><a href="./Register">Đăng Ký</a></li>
-    </ul>
-  </nav>
+    <?php
+    // đường link đến các trang khác
+    require_once "./mvc/views/link/".$data["Link"].".php";
+    ?>
 </section>
 <body>
     <div class="main">

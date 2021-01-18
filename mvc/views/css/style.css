@@ -1,13 +1,13 @@
+/*Phần các form*/
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 body {
-    margin: 50px auto;
     text-align: center;
-    width: 800px;
 }
+
 h1 {
     font-family: 'Passion One';
     font-size: 2rem;
@@ -16,7 +16,7 @@ h1 {
 label {
     width: 150px;
     display: inline-block;
-    text-align: left;
+    text-align: center;
     font-size: 1.5rem;
     font-family: 'Lato';
 }
@@ -56,4 +56,40 @@ p.error {
 }
 p.error {
     background: orangered;
+}
+/* Các đường link */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+  
+li {
+    float: right;
+    border-left: 1px solid #bbb;
+}
+li :first-child {
+    border-right: 1px solid #bbb;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-right: 1px solid #bbb;
+}
+  
+/* Thay đổi màu khi đặt con trỏ lên */
+li a:hover {
+    background-color: yellowgreen;
+}
+/* Thay đổi màu khi đang trong trang */
+.active {
+    background-color: yellowgreen;
 }

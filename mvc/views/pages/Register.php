@@ -1,4 +1,3 @@
-<h2>Đăng Ký</h2>
 <!--Nội dung trang đăng nhập-->
 <form action="./Register/Reciever" method="POST">
   <div class="form-group">

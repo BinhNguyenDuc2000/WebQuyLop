@@ -6,18 +6,18 @@ class Login extends controller{
     public $DangNhap;
     public function __construct()
     {
+         // Quay về trang chủ nếu đã đăng nhập
+         if(isset($_SESSION["MSSV"]))
+         {
+             echo "Đã đăng nhập";
+             $this->redirect("Home");
+             exit;
+         }
         $this->DangNhap=$this->model("DangNhap");
     }
     public function info()
     {
-        // Quay về trang chủ nếu đã đăng nhập
-        if(isset($_SESSION["MSSV"]))
-        {
-            echo "Đã đăng nhập";
-            $this->redirect("Home");
-            exit;
-        }
-        $this->view("standard0",["Page"=>"Login","Database"=>""]);
+        $this->view("Standard0",["Page"=>"Login","Link"=>"Login","Database"=>""]);
     }
     // Hứng và xử lý dữ liệu nhận được từ trang đăng nhập
     public function Reciever()
