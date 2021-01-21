@@ -12,7 +12,7 @@ class Controller {
     // Sử dụng Javascript do php không cho phép in ki chuyển trang
     public function redirect($site){
         $link="http://".$_SERVER['HTTP_HOST']."/QuyLop/".$site;
-        echo "<script>setTimeout(\"location.href = '$link';\",1500);</script>";
+        echo "<script>setTimeout(\"location.href = '$link';\",350);</script>";
     }
     // Hiển thị lỗi
     public function PopUp($Message)

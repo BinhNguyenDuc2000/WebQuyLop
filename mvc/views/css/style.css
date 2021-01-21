@@ -63,27 +63,42 @@ table {
 }
   
 th, td {
-    text-align: left;
-    padding: 8px;
+    text-align: center;
 }
 th {
     background-color: yellowgreen;
     color: white;
 }
-td.left {
+td.StudentSmall {
     background-color: yellowgreen;
     color: white;
     border: 2px black;
     border-radius: 5px;
     width: 20%;
+    padding: 8px;
 }
-td.right {
+td.StudentBig {
     background-color: white;
     border: 2px black;
     border-radius: 5px;
     width: 70%;
+    padding: 8px;
 }
-td.right:hover {
+img {
+    border-radius: 5px;
+}
+td.EventImage {
+    border: 2px black;
+    border-radius: 5px;
+    width: 40%;
+}
+td.EventText {
+    background-color: yellowgreen;
+    border: 2px black;
+    border-radius: 5px;
+    width: 60%;
+}
+td.big:hover {
     background-color: grey;
 }
 /* Các đường link */

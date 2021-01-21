@@ -33,7 +33,7 @@ class Login extends controller{
             {
                 $_SESSION["MSSV"]=$MSSV;
                 $_SESSION["QuyenAdmin"]=$QuyenAdmin;
-                $this->PopUp("Đăng Nhập thàn công");
+                $this->PopUp("Đăng Nhập thành công");
                 $this->redirect("Home");
                 exit;
             }

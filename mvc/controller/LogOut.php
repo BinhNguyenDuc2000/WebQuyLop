@@ -12,7 +12,7 @@ class LogOut extends controller{
         else 
         {
             session_unset();
-            echo '<script>alert("Đăng xuất thàn công")</script>';
+            echo '<script>alert("Đăng xuất thành công")</script>';
             $this->redirect("Login");
             exit;
         }
