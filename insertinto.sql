@@ -1,4 +1,4 @@
-﻿insert into SinhVien (MSSV,HoTen,SoDienThoai,Email,pass,tongsotien)
+﻿insert into SinhVien (MSSV,HoTen,SDT,Email,pass,tongsotien)
  values	('20184027',N'Đỗ Duy Anh','0399104633','duyanh@gmail.com','1','0'),
 		('20184032',N'Lưu Đức Anh','03457575','ducanh@gamil.com','1','0'),
 		('20184038',N'Phạm Huy Kỳ Anh','034393574','kyanh@gmail.com','1','0'),
