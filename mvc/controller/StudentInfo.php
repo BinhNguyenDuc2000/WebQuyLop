@@ -29,6 +29,48 @@ class StudentInfo extends controller{
             exit;
         }
     }
+    // Hứng và xử lý dữ liệu nhận được từ trang cập nhật
+    public function Update()
+    {
+        if(isset($_POST["btnUpdate"]))
+        {
+            // Hứng dữ liệu
+            $MSSV=$_POST["MSSV"];
+            $HoTen=$_POST["HoTen"];
+            $TenLop=$_POST["TenLop"];
+            $Khoa=$_POST["Khoa"];
+            if($_POST["SDT"]="Chưa có số điện thoại")
+            {
+                $SDT=0;
+            }
+            else 
+            {
+                $SDT=$_POST["SDT"];
+            }
+            if($_POST["Email"]="Chưa có email")
+            {
+                $Email="";
+            }
+            else
+            {
+                $Email=$_POST["Email"];
+            }
+            // Cập nhật
+            if ($this->SinhVien->Update($MSSV,$HoTen,$TenLop,$Khoa,$SDT,$Email))
+            {
+                $_SESSION["MSSV"]=$MSSV;
+                $this->PopUp("Cập nhật thành công");
+                $this->redirect("StudentInfo");
+                exit;
+            }
+            else
+            {
+                $this->PopUp("Cập Nhật thất bại");
+                $this->redirect("StudentInfo");
+                exit;
+            }
+        }
+    }
     // Hàm xóa tài khoản
     public function DeleteAccount()
     {
