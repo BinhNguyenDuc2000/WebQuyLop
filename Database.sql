@@ -51,37 +51,42 @@ on Dong
 for Update 
 as 
 declare @Tien_Cu int , @Tien_Moi int,@Tong_Tien_Cu int,@Tong_Tien_Moi int
-select @Tong_Tien_Cu = Sum(SoTien)
-from deleted
 select @Tien_Cu = SoTien
 from deleted
-select @Tong_Tien_Moi = Sum(SoTien)
-from inserted
+select @Tong_Tien_Cu = SUM (SoTien)
+from deleted
+group by SoTien
 select @Tien_Moi = SoTien
 from inserted
+select @Tong_Tien_Moi = SUM (SoTien)
+from inserted
+group by SoTien
 update QuyLop
 set TienQuy=TienQuy+@Tong_Tien_Moi-@Tong_Tien_Cu
 from QuyLop inner join deleted on QuyLop.MaLop=deleted.MaLop
 update SinhVien
 set TongSoTien=TongSoTien+@Tien_Moi-@Tien_Cu
 from SinhVien inner join deleted on deleted.MSSV=SinhVien.MSSV
-
+drop trigger Cap_Nhat_Tien_Quy
 --Cập nhật chi tiêu
 create trigger Cap_Nhat_Chi 
 on Chi
 for Update 
 as 
 declare @Tien_Cu int , @Tien_Moi int,@Tong_Tien_Cu int,@Tong_Tien_Moi int
-select @Tong_Tien_Cu = Sum(SoTienChi)
-from deleted
+select @Tong_Tien_Cu = sum(SoTienChi)
+from QuyLop inner join deleted on QuyLop.MaLop=deleted.MaLop
 select @Tong_Tien_Moi = Sum(SoTienChi)
-from inserted
+from inserted inner join deleted on QuyLop.MaLop=deleted.MaLop
 update QuyLop
 set TienQuy=TienQuy+@Tong_Tien_Cu-@Tong_Tien_Moi
 from QuyLop inner join deleted on QuyLop.MaLop=deleted.MaLop
 update SuKien
 set TinhTrang=1
 from SuKien inner join  deleted on SuKien.MaSK=deleted.MaSK
+select * from SinhVien
+where MSSV =20184047
+delete from SinhVien
 --Xóa các bảng
 drop table Chi
 drop table Dong

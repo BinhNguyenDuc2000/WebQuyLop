@@ -42,12 +42,11 @@ values	('1',N'Việt Nhật 01','7530000'),
 		('4',N'Việt Nhật 04','10200000'),
 		('5',N'Việt Nhật 05','4300000')
 
-insert into sukien(MaSk,TenSK,Ngay,GhiChu)
-values	('02',N'Nhà Giáo Việt Nam','2019-11-20',N'không có gì'),
+insert into SuKien(MaSk,TenSK,Ngay,GhiChu)
+values	('02',N'Nhà Giáo Việt Nam','2019-11-20',N'Nhà Giáo'),
 		('01',N'Quốc tế phụ nữ','2019-03-08',N'không có gì'),
-		('04',N'Nhà Giáo Việt Nam','2020-11-20',N'không có gì'),
+		('04',N'Nhà Giáo Việt Nam','2020-11-20',N'Nhà Giáo'),
 		('03',N'Quốc tế phụ nữ','2020-03-08',N'không có gì')
-
 
 insert into dong
 values
@@ -86,9 +85,14 @@ values
 		('20184203','4','0'),
 		('20184218','4','0')
 
-
 insert into chi
-values	('4','01','1000000'),
-		('4','02','1000000'),
-		('4','03','1000000'),
-		('4','04','1000000')
+values	('4','01','0'),
+		('4','02','0'),
+		('4','03','0'),
+		('4','04','0')
+update Dong
+set SoTien=10
+update Chi
+set SoTienChi=10
+update SuKien
+set TinhTrang=0
