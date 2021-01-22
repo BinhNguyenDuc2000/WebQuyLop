@@ -34,7 +34,6 @@
 		('20184203',N'Nguyễn Khánh Toàn','0265437338','khanhtoan@gmail.com','1','0'),
 		('20184218',N'Đoàn Anh Tuấn','0265337338','anhtuan@gmail.com','1','0')
 
-
 insert into  quylop
 values	('1',N'Việt Nhật 01','7530000'),
 		('2',N'Việt Nhật 02','2304000'),
