@@ -9,9 +9,8 @@
     <input type="HoTen" name="HoTen" class="form-control" id="HoTen"> <br>
   </div>
   <div class="form-group">
-    <label for="TenLop">Tên lớp</label> <br>
-    <input type="TenLop" name="TenLop" class="form-control" id="TenLop"> <br>
-  </div>
+    <label for="MaLop">Mã Lớp</label> <br>
+    <input type="MaLop" name="MaLop" class="form-control" id="MaLop"> <br>
   <div class="form-group">
     <label for="Khoa">Khóa</label> <br>
     <input type="Khoa" name="Khoa" class="form-control" id="Khoa"> <br>

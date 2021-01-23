@@ -37,7 +37,7 @@ class StudentInfo extends controller{
             // Hứng dữ liệu
             $MSSV=$_POST["MSSV"];
             $HoTen=$_POST["HoTen"];
-            $TenLop=$_POST["TenLop"];
+            $MaLop=$_POST["MaLop"];
             $Khoa=$_POST["Khoa"];
             if($_POST["SDT"]="Chưa có số điện thoại")
             {
@@ -56,7 +56,7 @@ class StudentInfo extends controller{
                 $Email=$_POST["Email"];
             }
             // Cập nhật
-            if ($this->SinhVien->Update($MSSV,$HoTen,$TenLop,$Khoa,$SDT,$Email))
+            if ($this->SinhVien->Update($MSSV,$HoTen,$MaLop,$Khoa,$SDT,$Email))
             {
                 $_SESSION["MSSV"]=$MSSV;
                 $this->PopUp("Cập nhật thành công");

@@ -13,10 +13,6 @@ $info=$data["Database"][0];
         <td class="StudentBig"> <input type="text" id="HoTen" name="HoTen" value='<?php echo $info["HoTen"];?>' ></td>
     </tr>
     <tr>
-        <td class="StudentSmall"> Tên Lớp </td>
-        <td class="StudentBig"> <input type="text" id="TenLop" name="TenLop" value='<?php echo $info["TenLop"];?>'> </td>
-    </tr>
-    <tr>
         <td class="StudentSmall"> Khóa </td>
         <td class="StudentBig"> <input type="text" id="Khoa" name="Khoa" value='<?php echo $info["Khoa"];?>'> </td>
     </tr>
@@ -37,6 +33,10 @@ $info=$data["Database"][0];
         <td class="StudentSmall"> Tiền quỹ lớp </td>
         <td class="StudentBig"> <?php echo $info["TienQuy"];?>
 
+    </tr>
+    <tr>
+        <td class="StudentSmall"> Mã Lớp </td>
+        <td class="StudentBig"> <?php echo $info["MaLop"];?> </td>
     </tr>
 </table>
 <button type="btnUpdate" name="btnUpdate" class="btn-primary"> Cập nhật tài khoản </button>

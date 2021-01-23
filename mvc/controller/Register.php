@@ -26,19 +26,38 @@ class Register extends controller{
             // Hứng dữ liệu
             $MSSV=$_POST["MSSV"];
             $HoTen=$_POST["HoTen"];
-            $TenLop=$_POST["TenLop"];
+            $MaLop=$_POST["MaLop"];
             $Khoa=$_POST["Khoa"];
             $SDT=$_POST["SDT"];
             $Email=$_POST["Email"];
             $Pass=$_POST["Pass"];
             $Pass=password_hash($Pass,PASSWORD_DEFAULT);
             // Truyền dữ liệu và xử lí kết quả
-            if($this->DangKy->Insert($MSSV,$HoTen,$TenLop,$Khoa,$SDT,$Email,$Pass))
+            if($this->DangKy->Insert($MSSV,$HoTen,$Khoa,$SDT,$Email,$Pass))
             {
-                $this->PopUp("Đăng ký thành công");
-                $this->redirect("Home");
-                exit;
+                if ($this->DangKy->InsertDong($MSSV,$MaLop))
+                {
+                    if ($this->DangKy->InsertBiet($MSSV,$MaLop))
+                    {
+                        $this->PopUp("Đăng ký thành công");
+                        $this->redirect("Home");
+                        exit;
+                    }
+                    else
+                    {
+                        $this->PopUp("Đăng ký thất bại do không thêm được bảng Biết");
+                        $this->redirect("Register");
+                        exit;
+                    }
+                }
+                else 
+                {
+                    $this->PopUp("Đăng ký thất bại do không thêm được bảng Đóng");
+                    $this->redirect("Register");
+                    exit;
+                }
             }
+
             else 
             {
                 $this->PopUp("Đăng ký thất bại");

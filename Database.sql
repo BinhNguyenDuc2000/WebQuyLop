@@ -1,7 +1,12 @@
-﻿create table [SinhVien] (
+﻿create table [QuyLop] (
+	[MaLop] int not null,
+	[TenLop] nvarchar(50) not null Unique,
+	[TienQuy] int not null default 0,
+	primary key ([MaLop]));
+
+create table [SinhVien] (
 	[MSSV] int not null,
 	[HoTen] nvarchar(50) not null,
-	[MaLop] int not null,
 	[Khoa] int not null default 63,
 	[SDT] int ,
 	[Email] varchar(100) Unique,
@@ -10,12 +15,12 @@
 	[Pass] varchar(100) not null,
 	[TongSoTien] int not null,
 	primary key ([MSSV]));
-
-create table [QuyLop] (
+create table [Biet] (
+	[MSSV] int not null,
 	[MaLop] int not null,
-	[TenLop] nvarchar(50) not null Unique,
-	[TienQuy] int not null default 0,
-	primary key ([MaLop]));
+	primary key ([MSSV], [MaLop]),
+	foreign key ([MSSV]) references [SinhVien]([MSSV]) on update cascade on delete cascade,
+	foreign key ([MaLop]) references [QuyLop]([MaLop]) on update cascade on delete cascade );
 
 create table [SuKien] (
 	[MaSK] int not null,
@@ -77,20 +82,19 @@ declare @Tien_Cu int , @Tien_Moi int,@Tong_Tien_Cu int,@Tong_Tien_Moi int
 select @Tong_Tien_Cu = sum(SoTienChi)
 from QuyLop inner join deleted on QuyLop.MaLop=deleted.MaLop
 select @Tong_Tien_Moi = Sum(SoTienChi)
-from inserted inner join deleted on QuyLop.MaLop=deleted.MaLop
+from QuyLop inner join deleted on QuyLop.MaLop=deleted.MaLop
 update QuyLop
 set TienQuy=TienQuy+@Tong_Tien_Cu-@Tong_Tien_Moi
 from QuyLop inner join deleted on QuyLop.MaLop=deleted.MaLop
 update SuKien
 set TinhTrang=1
 from SuKien inner join  deleted on SuKien.MaSK=deleted.MaSK
-select * from SinhVien
-where MSSV =20184047
-delete from SinhVien
+
 --Xóa các bảng
 drop table Chi
 drop table Dong
-drop table QuyLop
-drop table SuKien
+drop table Biet
 drop table SinhVien
+drop table SuKien
+drop table QuyLop
 
